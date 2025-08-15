@@ -1,6 +1,6 @@
 [build]
   # Build command for the frontend
-  command = "npm ci --legacy-peer-deps && npm run build"
+  command = "npm install --legacy-peer-deps && npm run build"
   # Directory to publish (Next.js output) - Netlify will auto-detect
   publish = ".next"
   # Base directory for the build
