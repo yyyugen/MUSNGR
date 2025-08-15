@@ -193,7 +193,7 @@ export function BackgroundOptions({
                   onValueChange={(value) =>
                     setBackgroundSettings((prev) => ({
                       ...prev,
-                      background: value,
+                      background: value as BackgroundStyle,
                     }))
                   }
                 >
@@ -224,7 +224,7 @@ export function BackgroundOptions({
                 <Select
                   value={backgroundSettings.font}
                   onValueChange={(value) =>
-                    setBackgroundSettings((prev) => ({ ...prev, font: value }))
+                    setBackgroundSettings((prev) => ({ ...prev, font: value as FontFamily }))
                   }
                 >
                   <SelectTrigger>
@@ -246,7 +246,7 @@ export function BackgroundOptions({
                   onValueChange={(value) =>
                     setBackgroundSettings((prev) => ({
                       ...prev,
-                      fontSize: value,
+                      fontSize: value as FontSize,
                     }))
                   }
                 >
@@ -274,7 +274,7 @@ export function BackgroundOptions({
                   onValueChange={(value) =>
                     setBackgroundSettings((prev) => ({
                       ...prev,
-                      alignment: value,
+                      alignment: value as TextAlignment,
                     }))
                   }
                 >

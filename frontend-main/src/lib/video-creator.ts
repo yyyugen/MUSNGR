@@ -39,20 +39,20 @@ export class VideoCreator {
         ]);
 
         // Set up MediaRecorder with fallback options
-        let options = { mimeType: 'video/webm;codecs=vp9,opus' };
+        let options: MediaRecorderOptions = { mimeType: 'video/webm;codecs=vp9,opus' };
 
         // Try different formats if the preferred one isn't supported
-        if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+        if (!MediaRecorder.isTypeSupported(options.mimeType!)) {
           console.log('VP9/Opus not supported, trying VP8/Opus');
           options = { mimeType: 'video/webm;codecs=vp8,opus' };
         }
 
-        if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+        if (!MediaRecorder.isTypeSupported(options.mimeType!)) {
           console.log('VP8/Opus not supported, trying default WebM');
           options = { mimeType: 'video/webm' };
         }
 
-        if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+        if (!MediaRecorder.isTypeSupported(options.mimeType!)) {
           console.log('WebM not supported, using default');
           options = {};
         }
