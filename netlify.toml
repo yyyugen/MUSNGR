@@ -1,10 +1,10 @@
 [build]
   # Build command for the frontend
-  command = "cd frontend-main && npm install --legacy-peer-deps && npm run build"
-  # Directory to publish (Next.js output)
-  publish = "frontend-main/out"
+  command = "npm install --legacy-peer-deps && npm run build"
+  # Directory to publish (Next.js output) - Netlify will auto-detect
+  publish = ".next"
   # Base directory for the build
-  base = "."
+  base = "frontend-main"
 
 [build.environment]
   # Node.js version
@@ -12,19 +12,12 @@
   # Next.js specific
   NEXT_TELEMETRY_DISABLED = "1"
 
-# Redirects for SPA routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}
+# Use Netlify's Next.js plugin for proper deployment
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
-# API redirects (if you plan to deploy backend separately)
-[[redirects]]
-  from = "/api/*"
-  to = "https://your-backend-url.com/api/:splat"
-  status = 200
-  force = true
+# Remove SPA redirects as Next.js handles routing
+# API routes will work with the Next.js plugin
 
 # Headers for security
 [[headers]]
