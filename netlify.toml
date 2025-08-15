@@ -8,7 +8,7 @@
 
 [build.environment]
   # Node.js version
-  NODE_VERSION = "20"
+  NODE_VERSION = "20.11.1"
   # Next.js specific
   NEXT_TELEMETRY_DISABLED = "1"
 
