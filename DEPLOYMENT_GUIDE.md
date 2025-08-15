@@ -58,8 +58,11 @@ git push -u origin main
    - `NEXTAUTH_URL`: `https://testmusngr.netlify.app`
    - `NEXTAUTH_SECRET`: Your NextAuth secret (generate a secure random string)
    - `NEXT_PUBLIC_YOUTUBE_API_KEY`: Your YouTube API key
+   - `RESEND_API_KEY`: Your Resend API key (optional - for email notifications)
 
 **Important**: Copy the actual values from your local `.env.local` file. The repository only contains placeholder values for security.
+
+**Note**: The `RESEND_API_KEY` is optional. If not provided, email notifications will be disabled but the app will still function normally.
 
 ## Step 6: Update Google OAuth Settings
 
