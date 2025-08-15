@@ -1,0 +1,46 @@
+[build]
+  # Build command for the frontend
+  command = "cd frontend-main && npm install && npm run build"
+  # Directory to publish (Next.js output)
+  publish = "frontend-main/out"
+  # Base directory for the build
+  base = "."
+
+[build.environment]
+  # Node.js version
+  NODE_VERSION = "18"
+  # Next.js specific
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Redirects for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"]}
+
+# API redirects (if you plan to deploy backend separately)
+[[redirects]]
+  from = "/api/*"
+  to = "https://your-backend-url.com/api/:splat"
+  status = 200
+  force = true
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Custom domain settings
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "development" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "development" }
