@@ -1,6 +1,6 @@
 [build]
   # Build command for the frontend
-  command = "cd frontend-main && npm install && npm run build"
+  command = "cd frontend-main && npm install --legacy-peer-deps && npm run build"
   # Directory to publish (Next.js output)
   publish = "frontend-main/out"
   # Base directory for the build
